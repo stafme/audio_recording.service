@@ -1,0 +1,12 @@
+[Unit]
+Description=PPP GPRS Connection
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/pon gprs
+ExecStop=/usr/bin/poff gprs
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
