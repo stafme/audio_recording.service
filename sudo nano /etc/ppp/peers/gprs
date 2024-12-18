@@ -1,0 +1,8 @@
+/dev/ttyS0 115200
+/dev/ttyUSB0 115200
+connect "/usr/sbin/chat -v -f /etc/chatscripts/gprs"
+noauth
+defaultroute
+usepeerdns
+persist
+holdoff 10
