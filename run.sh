@@ -5,8 +5,6 @@ while true; do
     file_name="/home/piadmin/wav/recording_$(date +%Y%m%d%H%M%S).wav"
 
     # Записываем звук в файл в течение 1 минуты
-    #sox -d -r 8000 -c 1 $file_name trim 0 1:00
-    #sox -t alsa hw:3,0 -r 8000 -c 1 /home/piadmin/wav/recording_$(date +%Y%m%d%H%M%S).wav trim 0 1:00
     sox -t alsa hw:3,0 -r 8000 -c 1 $file_name trim 0 1:00
 
     # Проверяем, существует ли файл
@@ -30,7 +28,7 @@ while true; do
             echo
             base64 $file_name
             echo "--boundary--"
-        ) | msmtp -a default -t stafme@ukr.net &  # Запуск в фоне
+        ) | msmtp -a default -t YouEmail@ukr.net &  # Запуск в фоне
         
         # Ждем завершения фона (отправки письма)
         wait $!
